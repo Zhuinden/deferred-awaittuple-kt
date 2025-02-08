@@ -1,0 +1,210 @@
+/*
+ * Copyright 2025 Gabor Varadi
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.zhuinden.deferredawaittuplekt
+
+import com.zhuinden.tupleskt.*
+import kotlinx.coroutines.Deferred
+import kotlinx.coroutines.awaitAll
+
+suspend fun <T1> awaitTuple(d1: Deferred<T1>): Tuple1<T1> = awaitAll(d1).let {
+    @Suppress("USELESS_CAST", "RemoveExplicitTypeArguments")
+    Tuple1<T1>(it[0] as T1)
+}
+
+suspend fun <T1, T2> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>): Pair<T1, T2> = awaitAll(d1, d2).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Pair<T1, T2>(array[0] as T1, array[1] as T2)
+}
+
+suspend fun <T1, T2, T3> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>) = awaitAll(d1, d2, d3).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Triple<T1, T2, T3>(array[0] as T1, array[1] as T2, array[2] as T3)
+}
+
+suspend fun <T1, T2, T3, T4> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>) = awaitAll(d1, d2, d3, d4).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple4<T1, T2, T3, T4>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4)
+}
+
+suspend fun <T1, T2, T3, T4, T5> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>) = awaitAll(d1, d2, d3, d4, d5).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple5<T1, T2, T3, T4, T5>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>): Tuple6<T1, T2, T3, T4, T5, T6> = awaitAll(d1, d2, d3, d4, d5, d6).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple6<T1, T2, T3, T4, T5, T6>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>): Tuple7<T1, T2, T3, T4, T5, T6, T7> = awaitAll(d1, d2, d3, d4, d5, d6, d7).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple7<T1, T2, T3, T4, T5, T6, T7>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>): Tuple8<T1, T2, T3, T4, T5, T6, T7, T8> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple8<T1, T2, T3, T4, T5, T6, T7, T8>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>): Tuple9<T1, T2, T3, T4, T5, T6, T7, T8, T9> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple9<T1, T2, T3, T4, T5, T6, T7, T8, T9>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>): Tuple10<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple10<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>): Tuple11<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple11<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>): Tuple12<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple12<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>): Tuple13<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple13<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>): Tuple14<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple14<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>): Tuple15<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple15<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15)
+}
+
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>): Tuple16<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple16<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>): Tuple17<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple17<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>): Tuple18<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple18<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>): Tuple19<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple19<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>): Tuple20<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple20<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>): Tuple21<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple21<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>): Tuple22<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple22<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>): Tuple23<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple23<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>): Tuple24<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple24<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>): Tuple25<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple25<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>): Tuple26<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple26<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>): Tuple27<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple27<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>): Tuple28<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple28<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>): Tuple29<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple29<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>): Tuple30<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple30<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>, d31: Deferred<T31>): Tuple31<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple31<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30, array[30] as T31)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>, d31: Deferred<T31>, d32: Deferred<T32>): Tuple32<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple32<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30, array[30] as T31, array[31] as T32)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>, d31: Deferred<T31>, d32: Deferred<T32>, d33: Deferred<T33>): Tuple33<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32, d33).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple33<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30, array[30] as T31, array[31] as T32, array[32] as T33)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>, d31: Deferred<T31>, d32: Deferred<T32>, d33: Deferred<T33>, d34: Deferred<T34>): Tuple34<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32, d33, d34).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple34<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30, array[30] as T31, array[31] as T32, array[32] as T33, array[33] as T34)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>, d31: Deferred<T31>, d32: Deferred<T32>, d33: Deferred<T33>, d34: Deferred<T34>, d35: Deferred<T35>): Tuple35<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32, d33, d34, d35).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple35<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30, array[30] as T31, array[31] as T32, array[32] as T33, array[33] as T34, array[34] as T35)
+}
+
+suspend fun <T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36> awaitTuple(d1: Deferred<T1>, d2: Deferred<T2>, d3: Deferred<T3>, d4: Deferred<T4>, d5: Deferred<T5>, d6: Deferred<T6>, d7: Deferred<T7>, d8: Deferred<T8>, d9: Deferred<T9>, d10: Deferred<T10>, d11: Deferred<T11>, d12: Deferred<T12>, d13: Deferred<T13>, d14: Deferred<T14>, d15: Deferred<T15>, d16: Deferred<T16>, d17: Deferred<T17>, d18: Deferred<T18>, d19: Deferred<T19>, d20: Deferred<T20>, d21: Deferred<T21>, d22: Deferred<T22>, d23: Deferred<T23>, d24: Deferred<T24>, d25: Deferred<T25>, d26: Deferred<T26>, d27: Deferred<T27>, d28: Deferred<T28>, d29: Deferred<T29>, d30: Deferred<T30>, d31: Deferred<T31>, d32: Deferred<T32>, d33: Deferred<T33>, d34: Deferred<T34>, d35: Deferred<T35>, d36: Deferred<T36>): Tuple36<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36> = awaitAll(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12, d13, d14, d15, d16, d17, d18, d19, d20, d21, d22, d23, d24, d25, d26, d27, d28, d29, d30, d31, d32, d33, d34, d35, d36).let { array ->
+    @Suppress("UNCHECKED_CAST", "RemoveExplicitTypeArguments")
+    Tuple36<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, T21, T22, T23, T24, T25, T26, T27, T28, T29, T30, T31, T32, T33, T34, T35, T36>(array[0] as T1, array[1] as T2, array[2] as T3, array[3] as T4, array[4] as T5, array[5] as T6, array[6] as T7, array[7] as T8, array[8] as T9, array[9] as T10, array[10] as T11, array[11] as T12, array[12] as T13, array[13] as T14, array[14] as T15, array[15] as T16, array[16] as T17, array[17] as T18, array[18] as T19, array[19] as T20, array[20] as T21, array[21] as T22, array[22] as T23, array[23] as T24, array[24] as T25, array[25] as T26, array[26] as T27, array[27] as T28, array[28] as T29, array[29] as T30, array[30] as T31, array[31] as T32, array[32] as T33, array[33] as T34, array[34] as T35, array[35] as T36)
+}
